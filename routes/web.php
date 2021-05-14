@@ -32,7 +32,7 @@ Route::resource('category',CategoryController::class);
 Route::get('admin/views/create',[AdminController::class,'create'])->name('admin.create');
 Route::get('admin/views/edit',[AdminController::class,'create'])->name('admin.edit');
 Route::get('/', [PageController::class, 'index'])->middleware('auth', 'verified');
-Route::get('/changeStatus', [AdminController::class,'ChangeBlogStatus'])->name('admin.changeStatus');
+Route::POST('/changeStatus', [AdminController::class,'ChangeBlogStatus'])->name('admin.changeStatus');
 Route::get('/changeUserStatus', [AdminController::class,'ChangeUserStatus'])->name('admin.changeUserStatus');
 Route::resource('/user', UserController::class);
 Route::resource('/blog', PostController::class);

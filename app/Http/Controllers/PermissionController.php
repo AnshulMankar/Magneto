@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\assign_permission;
 use App\Models\permission;
 use App\Models\User;
@@ -13,7 +14,7 @@ class PermissionController extends Controller
 {
     //
     public function index(Request $request)
-    {   $users = User::all();
+    {   $users = Admin::all();
         return view('admin.views.permissions',['users'=>$users]);
     }
     public function getUserPermission(Request $request)
@@ -39,9 +40,7 @@ class PermissionController extends Controller
         $relation_id = $request->user_id;
         $permission_id = $request->permission_id;
         $action = $request->action;
-
         $permission = assign_permission::where('relation_id', $relation_id)->first();
-
         if ('enable' === $action) {
             if ($permission) {
                 $permissionIds = explode(',', $permission->permission_id);

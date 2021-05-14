@@ -1,13 +1,13 @@
-<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
-      rel="stylesheet">
-<section class="content col-md-9">
+
+<section class="content col-md-12">
+    <div class="container">
     @foreach($data as $groupName => $group)
-        <div class="panel panel-success col-md-12">
-            <div class="panel-heading align-middle"> {{$groupName}}</div>
+        <div class="panel panel-heading col-md-10">
+            <div class="panel-heading align-middle bg-success text-lg-center text-capitalize"> {{$groupName}}</div>
             @foreach($group as $index => $row)
                 <div class="col-md-3">
                     <div class="panel-body">
-                        <div class="">
+                        <div class="text-capitalize text-lg-center">
                             {{$row['permission_title']}}
                         </div>
                             <div>
@@ -24,6 +24,7 @@
             @endforeach
         </div>
     @endforeach
+    </div>
 </section>
 
 <script>

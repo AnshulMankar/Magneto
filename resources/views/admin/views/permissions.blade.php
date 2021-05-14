@@ -14,22 +14,25 @@
                 <li class="active">Permissions</li>
             </ol>
         </section>
-
-        <!-- Main content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12 rounded-circle">
-                    <select class="form-select col-lg-2 border-dark grid-width-5 bg-green " id="user" aria-label="Default select example">
-                        <option class="align-middle" selected>Select Users</option>
+                    <select class="form-select col-lg-2 border-dark grid-width-5 bg-success " id="user" aria-label="Default select example">
+                        <option class="align-middle" selected>Select Admin</option>
                         @foreach($users as $user)
                             <option class="bg-white" value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
                     </select>
                 </div>
-                <section class="col-lg-3">
-                <div id="permit" class="container">
-                </div>
-                </section>
+                <br>
+<br>
+                    <div class="panel panel-heading">
+                        <div class="panel-heading align-middle text-lg-center text-capitalize bg-success col-lg-12">General Permissions</div>
+                        <div class="panel-body">
+                        <div id="permit" class="container text-capitalize text-black-50">
+                        </div>
+                        </div>
+                    </div>
             </div>
             <!-- /.row -->
         </section>
@@ -65,8 +68,7 @@
                         url: '{{route('admin.permission.updateUserPermission')}}',
                         data: {'action': toggle ? 'enable': 'disable', 'user_id': user_id, 'permission_id': permission_id, '_token': '{{csrf_token()}}'},
                     }).done(function (data) {
-                        alert('hello');
-
+                        alert('Permission updated Successfully');
                     });
                 });
         });

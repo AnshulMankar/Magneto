@@ -73,7 +73,7 @@
                 type: "POST",
                 dataType: "json",
                 url: '{{route('admin.changeStatus')}}',
-                data: {'status': status, 'user_id': user_id},
+                data: {'status': status, 'user_id': user_id,'_token': '{{csrf_token()}}'},
                 success: function(data){
                     console.log(data.success)
                 }
