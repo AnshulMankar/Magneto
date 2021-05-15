@@ -18,11 +18,6 @@
                 method="POST"
                 enctype="multipart/form-data">
                 @csrf
-                {{--<input
-                    type="text"
-                    placeholder="Enter Title"
-                    name="title"
-                    class="bg-gray-0 block border-b-2 w-full h-10 text-3xl outline-none">--}}
                 <label class="form-label">Title</label>
                 <input type="text" name="title"  class="form-control px-2" placeholder="Enter Title">
                 <br>

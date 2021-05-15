@@ -29,13 +29,12 @@ Route::post('/admin/permission/updateUserPermission',[PermissionController::clas
 Route::get('/admin/permission/getUserPermission',[PermissionController::class,'getUserPermission'])->name('admin.permission.getUserPermission');
 Route::get('/admin/permission',[PermissionController::class,'index'])->name('admin.permission');
 Route::resource('category',CategoryController::class);
-Route::get('admin/views/create',[AdminController::class,'create'])->name('admin.create');
-Route::get('admin/views/edit',[AdminController::class,'create'])->name('admin.edit');
 Route::get('/', [PageController::class, 'index'])->middleware('auth', 'verified');
-Route::POST('/changeStatus', [AdminController::class,'ChangeBlogStatus'])->name('admin.changeStatus');
+Route::post('/changeStatus', [AdminController::class,'ChangeBlogStatus'])->name('admin.changeStatus');
 Route::get('/changeUserStatus', [AdminController::class,'ChangeUserStatus'])->name('admin.changeUserStatus');
 Route::resource('/user', UserController::class);
 Route::resource('/blog', PostController::class);
+Route::resource('/admin', AdminController::class);
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.add');
 Route::post('/reply/store', [CommentController::class, 'replyStore'])->name('reply.add');
 Route::post('/blog/commentsDisplay', [CommentController::class, 'rejectStatus'])->name('comment.reject');
